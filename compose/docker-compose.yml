@@ -1,0 +1,14 @@
+version: "3"
+# https://www.baeldung.com/ops/mysol-docker-setup
+services:
+  solc:
+    platform: linux/amd64
+    image: ethereum/solc:stable
+    ports:
+      - "8080:8080"
+    networks:
+      - sol
+networks:
+  sol:
+
+

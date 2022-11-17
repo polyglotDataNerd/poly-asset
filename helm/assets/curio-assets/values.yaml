@@ -1,0 +1,5 @@
+image:
+  repository: nginx
+  tag: latest
+producer: "426063958398.dkr.ecr.us-east-1.amazonaws.com/curio/webhook:latest"
+hostname: curio-data.com
