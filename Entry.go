@@ -24,8 +24,10 @@ func init() {
 
 func main() {
 	client := gin.Default()
-	awsCli := a.Settings{AWSConfig: &aws.Config{Region: aws.String("us-east-1")}}
-	conn, _ := ethclient.Dial(a.SSMParams("/poly/eth/alchemy/wss/prod", 0, awsCli.SessionGenerator()))
+	awsCli := a.Settings{AWSConfig: &aws.Config{Region: aws.String("us-west-2")}}
+	wss := a.SSMParams("/poly/eth/alchemy/wss/prod", 0, awsCli.SessionGenerator())
+	log.Info.Println(wss)
+	conn, _ := ethclient.Dial(wss)
 	client.GET("/:id/:token", func(c *gin.Context) {
 		asset := strings.Split(c.Request.RequestURI, "/")
 		address := asset[1]
@@ -56,6 +58,7 @@ func main() {
 	client.GET("/", func(c *gin.Context) {
 		return
 	})
+	// run locally http://localhost:8080/
 	if serr := client.Run(); serr != nil {
 		log.Error.Println("could not run server: ", serr)
 	}

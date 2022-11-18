@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: asset-webhook
-  namespace: curio-test
+  namespace: poly-test
   labels:
     app: poly-asset
     chart: {{ template "doc.chart" . }}

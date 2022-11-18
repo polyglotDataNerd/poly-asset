@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	a "github.com/polyglotDataNerd/poly-Go-utils/aws"
 	log "github.com/polyglotDataNerd/poly-Go-utils/utils"
-	"io/ioutil"
+	"io"
 	"math/big"
 	"net/http"
 	"strconv"
@@ -17,8 +17,8 @@ import (
 
 func Get1155(assetID string, tokenID string) ([]byte, error) {
 	var uriTransformed string
-	awsCli := a.Settings{AWSConfig: &aws.Config{Region: aws.String("us-east-1")}}
-	client, _ := ethclient.Dial(a.SSMParams("/curio/eth/quicknode/wss/prod", 0, awsCli.SessionGenerator()))
+	awsCli := a.Settings{AWSConfig: &aws.Config{Region: aws.String("us-west-2")}}
+	client, _ := ethclient.Dial(a.SSMParams("/poly/eth/alchemy/wss/prod", 0, awsCli.SessionGenerator()))
 	tokenString, _ := strconv.Atoi(tokenID)
 	token, _ := NewToken(common.HexToAddress(assetID), client)
 
@@ -33,6 +33,6 @@ func Get1155(assetID string, tokenID string) ([]byte, error) {
 		log.Error.Println("may not be a valid asset, try again:", fmt.Sprintf("%s/%s", assetID, tokenID))
 	}
 	defer resp.Body.Close()
-	payload, _ := ioutil.ReadAll(resp.Body)
+	payload, _ := io.ReadAll(resp.Body)
 	return []byte(strings.ReplaceAll(string(payload), "ipfs://", "https://ipfs.io/ipfs/")), terr
 }

@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 buildpack-deps:stretch-scm
 
 #ENV CGO_ENABLED=0
-ARG AWS_REGION=us-east-1
+ARG AWS_REGION=us-west-2
 #ARG USER_HOME_DIR="/root"
 # install cgo-related dependencies
 RUN set -eux
@@ -127,7 +127,7 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 COPY . /app
 WORKDIR /app
-RUN go mod tidy && go build
-ENTRYPOINT ["./github.com/polyglotDataNerd/poly-asset"]
+RUN go mod tidy && go build ./runner/Entry.go
+ENTRYPOINT ["./Entry"]
 CMD []
 

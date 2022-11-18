@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: {{ .Release.Name }}-cluster-access-role
-  namespace: curio-test
+  namespace: poly-test
   labels:
     app: poly-asset
     chart: {{ template "doc.chart" . }}

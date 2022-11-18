@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: asset-service
-  namespace: curio-test
+  namespace: poly-test
   labels:
     app: poly-asset
     chart: {{ template "doc.chart" . }}

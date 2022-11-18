@@ -1,4 +1,4 @@
-# Assets
+# NFT Metadata Extractor
 
 An API that gets NFT metadata for ERC721 and ERC1155 based off the contract ABI
 
@@ -23,6 +23,6 @@ Infrastructure
 # run
 
 helm upgrade --install --debug --wait --timeout 3m --atomic --set
-image.repository=426063958398.dkr.ecr.us-east-1.amazonaws.com/curio/asset --set image.tag=latest --namespace=curio-test
+image.repository=712639424220.dkr.ecr.us-west-2.amazonaws.com/poly/asset --set image.tag=latest --namespace=poly-test
 poly-asset ./helm/asset/poly-asset
 
