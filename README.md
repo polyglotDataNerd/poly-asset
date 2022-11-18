@@ -20,7 +20,18 @@ Infrastructure
         * --out: Optional output path for the generated Go source file (not set = stdout)
 * [how to tell between 721 and 1155 token](https://ethereum.stackexchange.com/questions/118854/how-would-i-go-about-finding-out-whether-an-address-owns-a-specific-nft-or-not)
 
-# run
+Example
+-
+
+Get metadata for [NFT](https://opensea.io/assets/ethereum/0x9b293020d3802c80b023d4b6965ab5e59bc971e2/9799) using contract and token id (contractAddress/tokenID) locally using curl:
+    
+    ```curl -v http://localhost:8080/0x9b293020d3802c80b023d4b6965ab5e59bc971e2/9799```
+
+![](./images/metadata_output.png)
+
+
+
+# Deploy
 
 helm upgrade --install --debug --wait --timeout 3m --atomic --set
 image.repository=712639424220.dkr.ecr.us-west-2.amazonaws.com/poly/asset --set image.tag=latest --namespace=poly-test
