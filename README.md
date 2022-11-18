@@ -1,6 +1,6 @@
 # NFT Metadata Extractor
 
-An API that gets NFT metadata for ERC721 and ERC1155 based off the contract ABI
+An API that gets NFT metadata for ERC721 and ERC1155 based off the contract ABI, this is just for demo purposes no tests and is in sandbox mode. 
 
 Infrastructure
 -
