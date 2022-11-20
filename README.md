@@ -25,7 +25,7 @@ Example
 
 Get metadata for [NFT](https://opensea.io/assets/ethereum/0x9b293020d3802c80b023d4b6965ab5e59bc971e2/9799) using contract address and token id (contractAddress/tokenID) locally using curl:
     
-    ```curl -v http://localhost:8080/0x9b293020d3802c80b023d4b6965ab5e59bc971e2/9799```
+    curl -v http://localhost:8080/0x9b293020d3802c80b023d4b6965ab5e59bc971e2/9799
 
 ![](./images/metadata_output.png)
 
